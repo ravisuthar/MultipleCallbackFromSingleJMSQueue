@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/updateMilestoneStatus">
+	<xsd:complexType name="Milestone">
+		<xsd:annotation>
+			<xsd:documentation>
+				<p>This is Milestone Detais Data Type</p>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!-- ******Milestone ID****** -->
+			<xsd:element name="ID" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>ID of the Milestone and Mandatory</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Name****** -->
+			<xsd:element minOccurs="0" name="name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Name of the Milestone and optional</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Type****** -->
+			<xsd:element minOccurs="0" name="type" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Type of the Milestone(Tracking or Driving) and optional</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Planned or Requested Start Date****** -->
+			<xsd:element minOccurs="0" name="plannedStartDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Planned Start Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Current Estimated or Forecast Start Date****** -->
+			<xsd:element minOccurs="0" name="forecastStartDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Forecast Start Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Actual Start Date****** -->
+			<xsd:element minOccurs="0" name="actualStartDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Actual Start Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Planned or Requested Finish Date****** -->
+			<xsd:element minOccurs="0" name="plannedFinishDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Planned Finish Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Current Estimated or Forecast Finish Date****** -->
+			<xsd:element minOccurs="0" name="forecastFinishDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone forecast Finish Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone Actual Finish Date****** -->
+			<xsd:element minOccurs="0" name="actualFinishDate" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Actual Finish Date attribute and optional but value must be set if tag provided</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- ******Milestone status ****** -->
+			<xsd:element name="status" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Milestone Status attribute and mandatory</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="optional" type="xsd:boolean">
+			<xsd:annotation>
+					<xsd:documentation>
+						<p>Indicates if the milestone is optional or mandatory for the plan execution</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ArrayOfMilestones">
+		<xsd:sequence maxOccurs="unbounded">
+			<xsd:element name="Milestone" type="Milestone"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ProjectMilestones">
+		<xsd:sequence>
+			<xsd:element name="projectIdentifier" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						<p>Project ID of the Milestone and Mandatory</p>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Milestones" type="ArrayOfMilestones"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UpdateMilestoneStatusRequest">
+		<xsd:sequence maxOccurs="unbounded">
+			<xsd:element name="projectMilestones" type="ProjectMilestones"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="updateMilestoneStatusRequest" type="UpdateMilestoneStatusRequest"/>
+</xsd:schema>

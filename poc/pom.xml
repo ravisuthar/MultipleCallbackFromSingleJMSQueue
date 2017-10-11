@@ -1,0 +1,349 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example</groupId>
+	<artifactId>poc</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>poc-ear</module>
+		<module>poc-war</module>
+		<module>poc-schema</module>
+		<module>poc-endpoint</module>
+		<module>poc-jms</module>
+		<module>poc-client</module>
+	</modules>
+
+
+	<!-- Properties used throughout the pom are defined here. -->
+	<properties>
+		<spring.version>4.2.6.RELEASE</spring.version>
+		<spring.asm.version>3.1.0.RELEASE</spring.asm.version>
+		<spring.webservice.version>2.1.4.RELEASE</spring.webservice.version>
+		<spring.batch.version>3.0.6.RELEASE</spring.batch.version>
+		<ehcache.version>2.4.3</ehcache.version>
+		<aspectj.version>1.6.12</aspectj.version>
+		<axiom.version>1.2.14</axiom.version>
+		<easymock.version>3.4</easymock.version>
+		<cxf.version>3.1.6</cxf.version>
+		<!-- <classgen.version>11.1.0.6</classgen.version> --> <!-- Not required as of now. can be removed.. -->
+		<ojdbc6.version>11.2.0.3</ojdbc6.version>
+		<powermock.version>1.6.1</powermock.version>
+		<mockrunner.version>1.0.3</mockrunner.version>
+		<javax.jms.version>2.0</javax.jms.version>
+		<jackson.version>2.6.3</jackson.version>
+		<junit.version>4.11</junit.version>
+		<dozer.version>5.4.0</dozer.version>
+		<wsdl4j.version>1.6.2</wsdl4j.version>
+		<static.jar.version>9.0.0</static.jar.version>
+		<static.jar.common.version>9.0.0</static.jar.common.version>
+		<!-- <InventoryObjectAPI.version>9.0.0</InventoryObjectAPI.version> -->
+		<!-- <InventoryObjectAPI.version>8.1.0-SNAPSHOT</InventoryObjectAPI.version> 
+			Module arm-comonality-api is InventoryObjectAPI project -->
+		<inventory.api.driver.version>9.0.0</inventory.api.driver.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.logging.version>1.2</commons.logging.version>
+		<commons.beanutils.version>1.8.3</commons.beanutils.version>
+		<commons.collections4.version>4.0</commons.collections4.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.lang3.version>3.0</commons.lang3.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<xmlschema.core.version>2.0.1</xmlschema.core.version>
+		<org.apache.commons.lang.version>2.6</org.apache.commons.lang.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.8</jdk.version>
+		<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+	</properties>
+
+
+	<!-- Project dependencies defined here. -->
+	<dependencies>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+
+		<!-- Spring Core Container dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring Aspects dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring Data Access/Integration dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<!-- Spring Web dependencies -->
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+			<version>${spring.webservice.version}</version>
+		</dependency>
+
+		<!-- Spring Test dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>${easymock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring Batch dependencies -->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>${spring.batch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-test</artifactId>
+			<version>${spring.batch.version}</version>
+		</dependency>
+
+
+		<!-- Oracle dependencies -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.oracle</groupId> -->
+		<!-- <artifactId>classgen</artifactId> -->
+		<!-- <version>${classgen.version}</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${ojdbc6.version}</version>
+		</dependency>
+
+		<!-- Apache commons dependencies -->
+		<dependency>
+			<groupId>org.apache.ws.xmlschema</groupId>
+			<artifactId>xmlschema-core</artifactId>
+			<version>${xmlschema.core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.directory.studio</groupId>
+			<artifactId>org.apache.commons.lang</artifactId>
+			<version>${org.apache.commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons.collections4.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons.beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons.collections.version}</version>
+		</dependency>
+
+
+		<!-- Apache cxf dependencies -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+
+		<!-- Wsdl dependencies -->
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+			<version>${wsdl4j.version}</version>
+		</dependency>
+
+		<!-- Dozzer Mapper dependencies -->
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+
+		<!-- Junit dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+
+
+		<!-- Amdocs Cramer dependencies -->
+		<dependency>
+			<groupId>com.cramer.owi</groupId>
+			<artifactId>static-jar-common</artifactId>
+			<version>${static.jar.common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cramer.resource-manager.owi</groupId>
+			<artifactId>static-jar</artifactId>
+			<version>${static.jar.version}</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.amdocs.commonality</groupId> -->
+		<!-- <artifactId>InventoryObjectAPI</artifactId> -->
+		<!-- <version>${InventoryObjectAPI.version}</version> -->
+		<!-- <optional>true</optional> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>com.cramer.resource-manager.core.inventory-api-framework</groupId>
+			<artifactId>inventory-api-driver</artifactId>
+			<version>${inventory.api.driver.version}</version>
+		</dependency>
+
+
+		<!-- Ehcache dependencies -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
+
+		<!-- Jackson dependencies -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- JMS dependencies -->
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
+			<version>${javax.jms.version}</version>
+		</dependency>
+
+		<!-- Mock dependencies -->
+		<dependency>
+			<groupId>com.mockrunner</groupId>
+			<artifactId>mockrunner-jms</artifactId>
+			<version>${mockrunner.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-easymock</artifactId>
+			<version>${powermock.version}</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

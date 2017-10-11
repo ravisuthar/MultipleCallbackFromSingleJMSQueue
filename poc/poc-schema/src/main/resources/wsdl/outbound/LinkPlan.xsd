@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ep="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://amdocs.com/oss/aff/schema/linkPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/linkPlan">
+
+    <xs:element name="linkPlanRequest" type="LinkPlanRequest"/>
+
+    <xs:complexType name="LinkPlanRequest">
+        <xs:annotation>
+            <xs:documentation>
+                            <p>This is Link Plan Request Data Type</p>
+            </xs:documentation>
+        </xs:annotation>
+	<xs:sequence>
+	        <xs:sequence maxOccurs="unbounded">
+	                <xs:annotation>
+	                        <xs:documentation>
+	                                <p>This is a list of Linked Plans</p>
+	                        </xs:documentation>
+	                </xs:annotation>
+	                <xs:element name="LinkedPlans" type="LinkedPlan"/>
+		</xs:sequence>
+            <xs:element name="linkToPlanID" type="xs:string">
+                    <xs:annotation>
+                            <xs:documentation>
+                                    <p>This is Plan ID of the activity linked to Plan</p>
+                            </xs:documentation>
+                    </xs:annotation>
+            </xs:element>
+            <xs:element name="linkToActivityID" type="xs:string">
+                    <xs:annotation>
+                            <xs:documentation>
+                                    <p>This is Activity ID of the activity linked to Plan</p>
+                            </xs:documentation>
+                    </xs:annotation>
+            </xs:element>
+	</xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LinkedPlan">
+            <xs:annotation>
+                    <xs:documentation>
+                            <p>This is Linked Plan Data Type</p>
+                    </xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+			<xs:element name="planID" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+		</xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

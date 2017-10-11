@@ -1,0 +1,16 @@
+<xs:schema targetNamespace="http://com/cmtna/arm/armMicroFlow" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/cmtna/arm/armMicroFlow">
+	<xs:complexType name="armMicroFlowRequestType">
+		<xs:sequence>
+			<xs:element name="hostName" type="xs:string"/>
+			<xs:element name="Port"     type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="armMicroFlowRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="requestBody" type="tns:armMicroFlowRequestType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

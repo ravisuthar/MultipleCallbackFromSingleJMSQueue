@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ep="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://amdocs.com/oss/aff/schema/unlinkPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/unlinkPlan">
+
+    <xs:import namespace="http://amdocs.com/oss/aff/schema/executionPlan" schemaLocation="ExecutionPlan.xsd"/>
+
+    <xs:element name="unlinkPlanRequest" type="UnlinkPlanRequest"/>
+
+    <xs:complexType name="UnlinkPlanRequest">
+        <xs:annotation>
+            <xs:documentation>
+                <p>This is UnLink Plan Request Data Type</p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="planIds" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

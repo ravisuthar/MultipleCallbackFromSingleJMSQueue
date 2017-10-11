@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions targetNamespace="http://ws.mkyong.com/"
+name="ServerInfoService" xmlns="http://schemas.xmlsoap.org/wsdl/"
+xmlns:tns="http://ws.mkyong.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://ws.mkyong.com/"
+	         schemaLocation="ServerInfoService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="getIpAddress">
+    <part name="parameters" element="tns:getIpAddress"/>
+  </message>
+  <message name="getIpAddressResponse">
+    <part name="parameters" element="tns:getIpAddressResponse"/>
+  </message>
+  <portType name="ServerInfo">
+    <operation name="getIpAddress">
+      <input message="tns:getIpAddress"/>
+      <output message="tns:getIpAddressResponse"/>
+    </operation>
+  </portType>
+  <binding name="ServerInfoPortBinding" type="tns:ServerInfo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="getIpAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ServerInfoService">
+    <port name="ServerInfoPort" binding="tns:ServerInfoPortBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+</definitions>

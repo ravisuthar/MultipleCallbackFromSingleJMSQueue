@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://amdocs.com/oss/aff/schema/executePlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/executePlan">
+
+    <xs:element name="executePlanRequest" type="ExecutePlanRequest"/>
+
+    <xs:complexType name="ExecutePlanRequest">
+        <xs:sequence>
+            <xs:element name="planId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="executePlanResponse" type="ExecutePlanResponse"/>
+
+    <xs:complexType name="ExecutePlanResponse">
+        <xs:sequence>
+            <xs:element name="planID" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

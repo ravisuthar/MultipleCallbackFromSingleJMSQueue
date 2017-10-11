@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://amdocs.com/oss/aff/schema/cancelPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/cancelPlan">
+
+    <xs:element name="cancelPlanRequest" type="CancelPlanRequest"/>
+
+    <xs:complexType name="CancelPlanRequest">
+        <xs:sequence>
+            <xs:element name="planId" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="cancelPlanResponse" type="CancelPlanResponse"/>
+
+    <xs:complexType name="CancelPlanResponse">
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://amdocs.com/oss/schema/faults" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/schema/faults">
+    
+    <xsd:element name="validationFault" type="tns:ValidationFault"/>
+    <xsd:complexType name="ValidationFault">
+        <xsd:complexContent>
+            <xsd:extension base="tns:ExceptionBase">
+                <xsd:sequence/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:element name="exception" type="tns:Exception"/>
+    
+    
+     <xsd:complexType name="Exception">
+        <xsd:complexContent>
+            <xsd:extension base="tns:ExceptionBase">
+                <xsd:sequence/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType abstract="true" name="ExceptionBase">
+        <xsd:annotation>
+            <xsd:documentation>
+                <p>This is the base definition of all TIP operation exceptions. This type is injected by the TIP Generators into code generated from Tigerstripe Exception artifacts where the 'Extends' field has been left as an empty string or as 'java.lang.Exception'.</p>
+                <p>This exception  is  abstract</p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" name="code" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="reason" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <p>Free string to define the reason the exception was raised. It should be a short text. Might reference the step in the use case where this exception occurs, if a detailed use case was made for this operation.</p>
+                        <p>This element is generated from an attribute.</p>
+                        <p>This attribute  is  optional</p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element maxOccurs="1" minOccurs="0" name="details" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <p>The more specific details about the exception. Can also be a stack trace.</p>
+                        <p>This element is generated from an attribute.</p>
+                        <p>This attribute  is  optional</p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="extensionInfo">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        a generic list of any type of elements. Used for vendor extensions or loose element encapsulation from other namespaces.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

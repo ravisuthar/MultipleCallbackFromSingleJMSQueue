@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>poc</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>poc-schema</artifactId>
+
+
+
+
+	<properties>
+		<src.generated.dir>src/main/java</src.generated.dir>
+		<artifact.cxf.version>3.1.6	</artifact.cxf.version>
+		<xerces.version>2.11.0</xerces.version>
+		<jaxb2.maven.plugin.version>2.2</jaxb2.maven.plugin.version>
+		<inbound.wsdl>src/main/resources/wsdl/inbound/ComcastService.wsdl</inbound.wsdl>
+		<inbound.wsdl.location>classpath:src/main/resources/wsdl/inbound/ComcastService.wsdl</inbound.wsdl.location>
+		<outbound.wsdl>src/main/resources/wsdl/outbound/DynamicProcessManagerSvc.wsdl</outbound.wsdl>
+		<outbound.wsdl.location>classpath:src/main/resources/wsdl/outbound/DynamicProcessManagerSvc.wsdl</outbound.wsdl.location>
+		<jms.xsd>src/main/resources/jms/xsd/ARMMicroFlows.xsd</jms.xsd>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>${artifact.cxf.version}</version>
+				<executions>
+					<execution>
+						<id>generate-sources</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${src.generated.dir}</sourceRoot>
+							<defaultOptions>
+								<noAddressBinding>true</noAddressBinding>
+								<faultSerialVersionUID>3105839350746982386</faultSerialVersionUID>
+							</defaultOptions>
+							<wsdlOptions>
+								<!-- Inbound wsdl -->
+								<wsdlOption>
+									<wsdl>${inbound.wsdl}</wsdl>
+									<wsdlLocation>${inbound.wsdl.location}</wsdlLocation>
+									<serviceName>ARMService</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://comcast.ent.com/arm/=com.ent.comcast.arm</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>http://comcast.ent.com/commonheader/=com.ent.comcast.commonheader</extraarg>
+									</extraargs>
+								</wsdlOption>
+								
+								
+								<wsdlOption>
+									<wsdl>src/main/resources/wsdl/inbound/ServerInfoService.wsdl</wsdl>
+									<wsdlLocation>classpath:src/main/resources/wsdl/inbound/ServerInfoService.wsdl</wsdlLocation>
+									<serviceName>ServerInfoService</serviceName>
+<!-- 									<extraargs> -->
+<!-- 										<extraarg>-client</extraarg> -->
+<!-- 										<extraarg>-verbose</extraarg> -->
+<!-- 										<extraarg>-p</extraarg> -->
+<!-- 										<extraarg>http://comcast.ent.com/arm/=com.ent.comcast.arm</extraarg> -->
+<!-- 										<extraarg>-p</extraarg> -->
+<!-- 										<extraarg>http://comcast.ent.com/commonheader/=com.ent.comcast.commonheader</extraarg> -->
+<!-- 									</extraargs> -->
+								</wsdlOption>
+
+
+								<!-- Outbound wsdl -->
+								<wsdlOption>
+									<wsdl>${outbound.wsdl}</wsdl>
+									<wsdlLocation>${outbound.wsdl.location}</wsdlLocation>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+
+
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+						<version>${xerces.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>${jaxb2.maven.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+						<version>${xerces.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<packageName>com.cmtna.arm.microflows</packageName>
+					<sources>
+						<source>${jms.xsd}</source>
+					</sources>
+					<clearOutputDir>false</clearOutputDir>
+					<outputDirectory>${src.generated.dir}</outputDirectory>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

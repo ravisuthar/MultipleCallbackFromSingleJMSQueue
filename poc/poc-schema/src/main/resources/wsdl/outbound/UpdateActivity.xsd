@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://amdocs.com/oss/aff/schema/updateactivitystatus" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/updateactivitystatus">
+
+    <xs:element name="updateActivityStatusRequest" type="UpdateActivityStatusRequest"/>
+
+    <xs:complexType name="UpdateActivityStatusRequest">
+        <xs:sequence>
+            <xs:element name="activityStatusUpdate" type="ActivityStatusUpdate"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ActivityStatusUpdate">
+        <xs:sequence>
+            <xs:element name="planID" type="xs:string"/>
+            <xs:element name="activityID" type="xs:string"/>
+            <xs:element name="status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:whiteSpace value="preserve"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

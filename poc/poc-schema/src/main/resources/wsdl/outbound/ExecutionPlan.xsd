@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8'?><schema xmlns:tns="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/executionPlan">
+
+    <element name="executionPlansResponse" type="tns:ExecutionPlansResponse"/>
+    
+    <complexType name="ExecutionPlansResponse">
+    	<sequence>
+    		<element name="ExecutionPlans" type="tns:ExecutionPlans"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="ExecutionPlans">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" name="plans" type="tns:ExecutionPlan"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="ExecutionPlan">
+    	<sequence>
+    		<element name="ID" type="string"/>
+    		<element name="type" type="string"/>
+    		<element name="projectID" type="string"/>
+    		<element name="activities" type="tns:Activities"/>
+    		<element name="dependencyPlan" type="tns:DependencyPlan"/>
+    		<element name="WBSs" type="tns:WBSs"/>
+    		<element name="version" type="int"/>
+    		<element name="requiredStartDate" type="dateTime"/>
+    		<element name="requiredEndDate" type="dateTime"/>
+    		<element name="profileSpecID" type="string"/>
+    		<element maxOccurs="1" minOccurs="0" name="needAttention" type="boolean">
+    			<annotation>
+    				<documentation>
+    					<p>Indicates if the Plan has any Activity with needAttention set to true or In-Error.</p>
+    					<p>true signifies the Plan has one or more Activity(s) with needAttention set to true or In-Error.</p>
+    					<p>false signifies the Plan has no Activity(s) with needAttention set to true or In-Error.</p>
+    				</documentation>
+    			</annotation>
+    		</element>
+    	</sequence>
+    </complexType>   
+    
+    <complexType name="Activity">
+    	<sequence>
+    		<element name="ID" type="string"/>
+    		<element minOccurs="0" name="name" type="string"/>
+
+
+            <element name="activitySpec" type="tns:ActivitySpec"/>
+            <element minOccurs="0" name="action" type="string"/>
+    		<element name="operation" type="string"/>
+   			<element name="executionParams" type="tns:ExecutionParams"/>
+    		<element name="projectItemInstanceID" type="string"/>
+    		<element name="forecastState" type="string"/>
+    		<element minOccurs="0" name="requiredStartDate" type="dateTime"/>
+    		<element minOccurs="0" name="requiredEndDate" type="dateTime"/>
+    		<element name="businessCalendarInd" type="boolean"/>
+   			<element name="duration" type="tns:Duration"/>
+            <element minOccurs="0" name="externalDependencies" type="tns:ExternalDependencies"/>
+    	    <element maxOccurs="1" minOccurs="0" name="linkedPlanIdentifiers" type="tns:PlanIdentifiers">
+    			<annotation>
+    				<documentation>
+    					<p>List of Linked-Plans associated to this Activity</p>
+    				</documentation>
+    			</annotation>
+    	    </element>
+    		<element maxOccurs="1" minOccurs="0" name="needAttention" type="boolean">
+    			<annotation>
+    				<documentation>
+    					<p>Indicates if the Activity has any linked-plan(s) associated with needAttention set to true</p>
+    					<p>true signifies the Activity has one or more linked-plan(s) associated with needAttention set to true</p>
+    					<p>false signifies the Activity has no associated linked-plan(s) with needAttention set to true</p>
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element maxOccurs="1" minOccurs="0" name="errorDetail" type="tns:ErrorDetail">
+    			<annotation>
+    				<documentation>
+    					<p>Details of the Error associated to this Activity</p>
+    				</documentation>
+    			</annotation>
+    		</element>
+    		<element minOccurs="0" name="subPlanID" type="string"/>
+    	</sequence>
+    </complexType>
+
+    
+	<complexType name="PlanIdentifiers">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="planIdentifier" type="tns:PlanIdentifier"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="PlanIdentifier">
+		<sequence>
+			<element name="planID" type="string"/>
+			<element name="planName" type="string"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ErrorDetail">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="errorID" type="string">
+				<annotation>
+					<documentation>
+						<p>Unique Identifier of an Error in AFF application.</p>
+					</documentation>
+				</annotation>
+			</element>
+			<element maxOccurs="1" minOccurs="1" name="errorCode" type="string">
+				<annotation>
+					<documentation>
+						<p>Identifies the type of Error.</p>
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+    
+    <complexType name="ExternalDependencies">
+        <sequence>
+            <element maxOccurs="unbounded" minOccurs="0" name="externalDependency" type="tns:ExternalDependency"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ExternalDependency">
+        <sequence>
+            <element name="entityID" type="string"/>
+            <element name="parentID" type="string"/>
+            <element name="type" type="string"/>
+            <element name="role" type="string"/>
+            <element name="state" type="string"/>
+        </sequence>
+    </complexType>
+
+	<complexType name="Duration">
+		<sequence>
+			<element name="days" type="int"/>
+			<element name="hours" type="int"/>
+			<element name="minutes" type="int"/>
+		</sequence>
+	</complexType>
+
+	<!-- 
+	<complexType name="PreExecutionParams">
+		<sequence>
+			<element name="preExecutionParam" type="string"
+					maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+	 -->
+
+    <complexType name="ExecutionParam">
+    	<sequence>
+    		<element name="name" type="string"/>
+    		<element name="value" type="string"/>
+    		<element name="sourceType" type="string"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DependencyEntity">
+    	<sequence>
+    		<element name="entityID" type="string"/>
+    		<element name="dependencyEntityType" type="string"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DependencyGroup">
+    	<sequence>
+    		<element name="ID" type="string"/>
+    		<element name="entities">
+    			<complexType>
+    				<sequence>
+			    		<element maxOccurs="unbounded" minOccurs="0" name="entity" type="tns:DependencyEntity"/>
+    				</sequence>
+    			</complexType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DependencyPlan">
+    	<sequence>
+    		<element name="DependencyGroups">
+    			<complexType>
+    				<sequence>
+			    		<element maxOccurs="unbounded" minOccurs="1" name="DependencyGroup" type="tns:DependencyGroup">
+			    		</element>   				
+    				</sequence>
+    			</complexType>
+    		</element>
+			<element name="dependencyGroupDescriptors">
+				<complexType>
+					<sequence>
+			    		<element maxOccurs="unbounded" minOccurs="0" name="dependencyGroupDescriptor" type="tns:DependencyGroupDescriptor">
+			    		</element>				
+					</sequence>
+				</complexType>
+			</element>    		
+    		<element name="dependencyEntityDescriptors">
+    			<complexType>
+    				<sequence>
+			    		<element maxOccurs="unbounded" minOccurs="0" name="dependencyEntityDescriptor" type="tns:DependencyEntityDescriptor">
+			    		</element>    				
+    				</sequence>
+    			</complexType>
+    		</element>
+    		<element name="planEntities">
+    			<complexType>
+    				<sequence>
+			    		<element maxOccurs="unbounded" minOccurs="0" name="planEntity" type="tns:DependencyEntity"/>    				
+    				</sequence>
+   				</complexType>
+    		</element>    		
+    	</sequence>
+    </complexType>
+
+    <complexType name="DependencyGroupDescriptor">
+    	<sequence>
+    		<element name="dependent" type="tns:DependencyGroup"/>
+    		<element name="parent" type="tns:DependencyGroup"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="DependencyEntityDescriptor">
+    	<sequence>
+    		<element name="dependentStatus" type="string"/>
+    		<element name="parentStatus" type="string"/>
+    		<element name="dependent" type="tns:DependencyEntity"/>
+    		<element name="parent" type="tns:DependencyEntity"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="WBS">
+    	<sequence>
+    		<element name="ID" type="string"/>
+    		<element minOccurs="0" name="name" type="string"/>
+    		<element name="activities" type="tns:Activities"/>    		
+    		<element name="characteristic" type="tns:Characteristics"/>
+    		<element minOccurs="0" name="subWBSs" type="tns:WBSs">    			
+    		</element>
+    		<element name="WBSSpec" type="tns:WBSSpec"/>
+    		<element minOccurs="0" name="action" type="string"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ActivitySpec">
+    	<sequence>
+    		<element name="specID" type="string"/>
+    		<element name="versionNumber" type="long"/>
+    		<element name="name" type="string"/>
+    		<element maxOccurs="1" minOccurs="0" name="displayName" type="string"/>
+    		<element name="description" type="string"/>
+    		<element minOccurs="0" name="type" type="string"/>
+    		<element minOccurs="0" name="preExecutionRule" type="string">
+    			<!-- 
+    			<complexType>
+    				<sequence>
+    					<element name="preExecutionRuleSpec "
+    						type="string" maxOccurs="unbounded" minOccurs="0">
+    					</element>
+    				</sequence>
+    			</complexType>
+    			 -->
+    		</element>    	
+    		<element name="activityImplementation">
+    			<complexType>
+    				<sequence>
+    					<element name="ID" type="string"/>
+    					<element name="name" type="string"/>
+    					<element name="description" type="string"/>
+    					<element name="class" type="string"/>
+    					<element maxOccurs="unbounded" minOccurs="0" name="allowedStatuses" type="string">
+    					</element>
+    					<element maxOccurs="unbounded" minOccurs="0" name="DoProcess">
+    						<complexType>
+    							<sequence>
+    								<element name="action" type="string">
+    								</element>
+    								<element name="process" type="string">
+    								</element>
+    							</sequence>
+    						</complexType>
+    					</element>
+    					<element maxOccurs="unbounded" minOccurs="0" name="parameters">
+    						<complexType>
+    							<sequence>
+    								<element name="name" type="string"/>
+    								<element name="type" type="string"/>
+    								<element name="operation" type="string"/>
+    								<element name="isMandatory" type="boolean"/>
+    							</sequence>
+    						</complexType>
+    					</element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="WBSSpec">
+    	<sequence>
+    		<element name="ID" type="string"/>
+    		<element name="versionID" type="string"/>
+    		<element name="name" type="string"/>
+    		<element name="description" type="string"/>
+    		<element name="type" type="string"/>    		
+    		<element name="preExecutionRule" type="string"/>
+    	</sequence>
+    </complexType>
+
+	
+	<complexType name="Characteristics">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="characteristic" type="tns:AttributeType">
+			</element>    				
+		</sequence>
+	</complexType>
+
+    <complexType name="AttributeType">
+    	<sequence>
+    		<element name="name" type="string"/>
+    		<element name="type" type="string"/>
+    		<element name="value" type="string"/>
+    		<element name="attributeTypeSpec" type="tns:AttributeTypeSpec"/>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="WBSs">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="1" name="WBS" type="tns:WBS">
+			</element>	
+		</sequence>
+	</complexType>
+    
+    <complexType name="Activities">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="1" name="activity" type="tns:Activity">
+    		</element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="ExecutionParams">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" name="executionParam" type="tns:ExecutionParam">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AttributeTypeSpec">
+    	<sequence>
+    		<element name="specID" type="string"/>
+    	</sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,24 @@
+Weblogic > services > Messaging > JMS Servers
+	JMS Server : ARMJMSServer-0 
+	Persistent Store  : ARMFileStore 
+	Target  : AdminServer
+	Current Target  : AdminServer
+
+	
+Weblogic > services > Messaging > JMS Modules
+	Name: ARMSystemModule-0	
+	
+	
+	Connection Factory:
+		Name :	com/cmtna/arm/ARMConnectionFactory
+		Type : Connection Factory
+		JNDI Name  : com/cmtna/arm/ARMConnectionFactory
+		Subdeployment  : com/cmtna/arm/ARMConnectionFactory
+		Targets  : AdminServer
+	
+	Uniform Distributed Queue :
+		Name : com/cmtna/arm/ARMAsyncQueue
+		Type : Uniform Distributed Queue
+		JNDI Name  : com/cmtna/arm/ARMAsyncQueue
+		Subdeployment  : 	Default Targetting
+		Targets  : 	AdminServer

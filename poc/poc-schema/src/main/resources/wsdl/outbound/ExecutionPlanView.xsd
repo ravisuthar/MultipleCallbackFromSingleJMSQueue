@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8'?><schema xmlns:tns="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:ms="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/executionPlanView">
+    
+    
+    <import namespace="http://amdocs.com/oss/aff/schema/executionPlan" schemaLocation="ExecutionPlan.xsd"/>
+    <import namespace="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" schemaLocation="UpdateMilestoneStatus.xsd"/>
+	<import namespace="http://amdocs.com/oss/aff/schema/scheduleActivity" schemaLocation="ScheduleActivity.xsd"/>
+    
+
+
+    <element name="executionPlanRequest" type="tns:ExecutionPlanRequest"/>
+    <complexType name="ExecutionPlanRequest">
+        <sequence>
+            <element name="projectID" type="string"/>
+            <element name="planType" type="string"/>
+            <element maxOccurs="2" minOccurs="0" name="filter" type="tns:executionPlanFilter">
+                
+            </element>
+        </sequence>
+    </complexType>
+    
+    <element name="executionPlanByPlanIDRequest" type="tns:ExecutionPlanByPlanIDRequest"/>
+    <complexType name="ExecutionPlanByPlanIDRequest">
+        <sequence>
+            <element name="planID" type="string"/>
+            <element maxOccurs="2" minOccurs="0" name="filter" type="tns:executionPlanFilter"/>
+        </sequence>
+    </complexType>
+    
+    <simpleType name="executionPlanFilter">
+        <restriction base="string">
+            <enumeration value="ACTIVITY_EXTERNAL_DEPENDENCY"/>
+        </restriction>
+    </simpleType>
+    
+    <complexType name="RelatedExecutionPlans">
+    	<sequence>
+    		<element maxOccurs="unbounded" minOccurs="0" name="plans" type="tns:ExecutionPlan"/>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ExecutionPlan">
+        <complexContent>
+            <extension base="enp:ExecutionPlan">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="milestones" type="ms:ArrayOfMilestones"/>
+                    <element maxOccurs="1" minOccurs="0" name="relatedPlans" type="tns:RelatedExecutionPlans"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="executionPlanResponse" type="tns:ExecutionPlanResponse"/>
+    <complexType name="ExecutionPlanResponse">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="ExecutionPlan" type="tns:ExecutionPlan"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Activity">
+        <complexContent>
+            <extension base="enp:Activity">
+                <sequence>
+                    <element name="status" type="string"/>
+                    <element name="state" type="string"/>
+                    <element name="createDate" type="dateTime"/>
+                    <element minOccurs="0" name="completeDate" type="dateTime"/>
+                    <element name="currentStartDate" type="dateTime"/>
+                    <element name="currentEndDate" type="dateTime"/>
+                    <element minOccurs="0" name="actualStartDate" type="dateTime"/>
+                    <element minOccurs="0" name="actualEndDate" type="dateTime"/>
+                    <element name="estimatedStartDate" type="dateTime"/>
+                    <element name="estimatedEndDate" type="dateTime"/>
+                    <element maxOccurs="1" minOccurs="0" name="scheduleDetail" type="sa:Schedule"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="getMilestoneRequest" type="tns:GetMilestoneRequest">
+        <annotation>
+            <documentation>
+                <p>The getMilestoneRequest message XML schema.</p>
+            </documentation>
+        </annotation>
+    </element>
+
+    <complexType name="GetMilestoneRequest">
+        <sequence>
+            <element name="planID" type="string">
+                <annotation>
+                    <documentation>
+                        <p>Identifier of the plan to which the milestone
+                            is associated.</p>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="milestoneID" type="string">
+                <annotation>
+                    <documentation>
+                        <p>Identifier of the milestone.</p>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <element name="getMilestoneResponse" type="tns:GetMilestoneResponse">
+        <annotation>
+            <documentation>
+                <p>The getMilestoneResponse message XML schema.</p>
+            </documentation>
+        </annotation>
+    </element>
+
+    <complexType name="GetMilestoneResponse">
+        <sequence>
+            <element name="milestone" type="ms:Milestone">
+                <annotation>
+                    <documentation>
+                        <p>Milestone fetched.</p>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <element name="getActivityRequest" type="tns:GetActivityRequest">
+        <annotation>
+            <documentation>
+                <p>The getActivityRequest message XML schema.</p>
+            </documentation>
+        </annotation>
+    </element>
+
+    <complexType name="GetActivityRequest">
+        <sequence>
+            <element name="planID" type="string">
+                <annotation>
+                    <documentation>
+                        <p>Identifier of the plan to which the milestone
+                            is associated.</p>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="activityID" type="string">
+                <annotation>
+                    <documentation>
+                        <p>Identifier of the activity.</p>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <element name="getActivityResponse" type="tns:GetActivityResponse">
+        <annotation>
+            <documentation>
+                <p>The getActivityResponse message XML schema.</p>
+            </documentation>
+        </annotation>
+    </element>
+
+    <complexType name="GetActivityResponse">
+        <sequence>
+            <element name="activity" type="tns:Activity">
+                <annotation>
+                    <documentation>
+                        <p>Activity fetched.</p>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    
+</schema>

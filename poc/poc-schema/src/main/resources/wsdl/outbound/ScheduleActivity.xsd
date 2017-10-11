@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ep="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://amdocs.com/oss/aff/schema/scheduleActivity" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/scheduleActivity">
+
+    <xs:import namespace="http://amdocs.com/oss/aff/schema/executionPlan" schemaLocation="ExecutionPlan.xsd"/>
+
+    <xs:element name="scheduleActivityRequest" type="ScheduleActivityRequest"/>
+	<xs:element name="scheduleActivityResponse" type="ScheduleActivityResponse"/>
+	
+    <xs:complexType name="ScheduleActivityRequest">
+        <xs:sequence>
+           	<xs:element name="planID" type="xs:string"/>
+            <xs:element name="activityID" type="xs:string"/>
+            <xs:element name="schedule" type="Schedule"/>
+        </xs:sequence>
+    </xs:complexType>
+     
+    <xs:complexType name="ScheduleActivityResponse">
+        <xs:sequence>
+            <xs:element name="scheduleActivityResponse" type="ScheduleActivityResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="schedule" type="Schedule"/>
+
+	<xs:complexType name="Schedule">
+		<xs:sequence>
+		<xs:annotation>
+                  <xs:documentation>
+                          <p>Start Date - Updates the activity estimated start date. Can be set as the only schedule parameter or together with either duration or end date.
+						     End Date - Updates the activity estimated end date. Can be set as the only schedule parameter or together with start date.
+						     Duration - Updates the activity run-time duration.  Can be set as the only schedule parameter or together with start date.
+						     Constraint - Enforces the activity to start considering the given option, e.g. don't start before the activity defined start date. Applicable to the start date only.</p>
+                  </xs:documentation>
+			</xs:annotation>
+			<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+			<xs:element minOccurs="0" name="duration" type="ep:Duration"/>
+			<xs:element minOccurs="0" name="constraint" type="xs:string"/>
+			<xs:element minOccurs="1" name="reasonCode" type="xs:string"/>
+			<xs:element minOccurs="0" name="reasonText" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

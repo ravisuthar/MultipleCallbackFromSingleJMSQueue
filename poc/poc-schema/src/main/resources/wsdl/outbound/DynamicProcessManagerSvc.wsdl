@@ -1,0 +1,584 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://amdocs.com/oss/aff/contract/dynamicProcessManager">
+    <types>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/updateactivitystatus" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/updateactivitystatus">
+
+            
+  <xs:include schemaLocation="UpdateActivity.xsd"/>
+            
+            
+  <xs:element name="updateActivityStatus" type="UpdateActivityStatus"/>
+            
+  <xs:element name="updateActivityForecastStatus" type="UpdateActivityStatus"/>
+            
+            
+  <xs:complexType name="UpdateActivityStatus">
+                
+    <xs:sequence>
+                    
+      <xs:element name="updateActivityStatusRequest" type="UpdateActivityStatusRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/scheduleActivity" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/scheduleActivity">
+
+            
+  <xs:include schemaLocation="ScheduleActivity.xsd"/>
+            
+            
+  <xs:element name="scheduleActivity" type="ScheduleActivityType"/>
+            
+            
+  <xs:complexType name="ScheduleActivityType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="scheduleActivityRequest" type="ScheduleActivityRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/updateMilestoneStatus">
+            
+            
+  <xs:include schemaLocation="UpdateMilestoneStatus.xsd"/>
+
+            
+  <xs:element name="updateMilestoneStatus" type="UpdateMilestoneStatusType"/>
+
+            
+  <xs:complexType name="UpdateMilestoneStatusType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="updateMilestoneStatusRequest" type="UpdateMilestoneStatusRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/createPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/createPlan">
+
+            
+  <xs:include schemaLocation="CreatePlan.xsd"/>
+
+            
+  <xs:element name="createPlan" type="CreatePlanType"/>
+
+            
+  <xs:complexType name="CreatePlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="createPlanRequest" type="CreatePlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/createSubPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/createSubPlan">
+
+            
+  <xs:include schemaLocation="CreateSubPlan.xsd"/>
+            
+            
+  <xs:element name="createSubPlan" type="CreateSubPlanType"/>
+
+            
+  <xs:complexType name="CreateSubPlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="createSubPlanRequest" type="CreateSubPlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/error" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/error">
+
+            
+  <xs:include schemaLocation="Error.xsd"/>
+
+            
+  <xs:element name="reportError" type="ReportErrorType"/>
+            
+  <xs:complexType name="ReportErrorType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="errorRequest" type="ErrorRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+            
+  <xs:element name="reportErrorResponse" type="ReportErrorResponseType"/>
+            
+  <xs:complexType name="ReportErrorResponseType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="errorID" type="xs:string"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+            
+  <xs:element name="errorResolved" type="ErrorResolvedType"/>
+            
+  <xs:complexType name="ErrorResolvedType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="errorResolved" type="ErrorResolvedRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/executePlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/executePlan">
+
+            
+  <xs:include schemaLocation="ExecutePlan.xsd"/>
+
+            
+  <xs:element name="executePlan" type="ExecutePlanType"/>
+            
+  <xs:complexType name="ExecutePlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="executePlanRequest" type="ExecutePlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/executionPlanView" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/executionPlanView">
+
+            
+  <xs:include schemaLocation="ExecutionPlanView.xsd"/>
+
+            
+  <xs:import namespace="http://amdocs.com/oss/aff/schema/executionPlan" schemaLocation="ExecutionPlan.xsd"/>
+
+            
+  <xs:element name="getExecutionPlanView" type="ExecutionPlanType"/>
+            
+  <xs:complexType name="ExecutionPlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="executionPlanRequest" type="ExecutionPlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+            
+            
+  <xs:element name="getExecutionPlanViewByPlanID" type="ExecutionPlanByPlanIDType"/>
+            
+  <xs:complexType name="ExecutionPlanByPlanIDType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="executionPlanRequest" type="ExecutionPlanByPlanIDRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/schema/faults" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/schema/faults">
+            
+  <xs:include schemaLocation="Faults.xsd"/>
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/cancelPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/cancelPlan">
+
+            
+  <xs:include schemaLocation="CancelPlan.xsd"/>
+
+            
+  <xs:element name="cancelPlan" type="CancelPlan"/>
+            
+  <xs:complexType name="CancelPlan">
+                
+    <xs:sequence>
+                    
+      <xs:element name="cancelPlan" type="CancelPlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/linkPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/linkPlan">
+
+            
+  <xs:include schemaLocation="LinkPlan.xsd"/>
+
+            
+  <xs:element name="linkPlan" type="LinkPlanType"/>
+            
+  <xs:complexType name="LinkPlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="linkPlanRequest" type="LinkPlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+            
+        
+</xs:schema>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ws="http://www.example.com/webservice" xmlns:ums="http://amdocs.com/oss/aff/schema/updateMilestoneStatus" xmlns:ulp="http://amdocs.com/oss/aff/schema/unlinkPlan" xmlns:uas="http://amdocs.com/oss/aff/schema/updateactivitystatus" xmlns:tns="http://amdocs.com/oss/aff/contract/dynamicProcessManager" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sa="http://amdocs.com/oss/aff/schema/scheduleActivity" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:lp="http://amdocs.com/oss/aff/schema/linkPlan" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:fault="http://amdocs.com/oss/schema/faults" xmlns:err="http://amdocs.com/oss/aff/schema/error" xmlns:ep="http://amdocs.com/oss/aff/schema/executePlan" xmlns:env="http://amdocs.com/oss/aff/schema/executionPlanView" xmlns:enp="http://amdocs.com/oss/aff/schema/executionPlan" xmlns:csp="http://amdocs.com/oss/aff/schema/createSubPlan" xmlns:cp="http://amdocs.com/oss/aff/schema/createPlan" xmlns:cnp="http://amdocs.com/oss/aff/schema/cancelPlan" xmlns="http://amdocs.com/oss/aff/schema/unlinkPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/unlinkPlan">
+
+            
+  <xs:include schemaLocation="UnlinkPlan.xsd"/>
+
+            
+  <xs:element name="unlinkPlan" type="UnlinkPlanType"/>
+            
+  <xs:complexType name="UnlinkPlanType">
+                
+    <xs:sequence>
+                    
+      <xs:element name="unlinkPlanRequest" type="UnlinkPlanRequest"/>
+                
+    </xs:sequence>
+            
+  </xs:complexType>
+            
+        
+</xs:schema>
+    </types>
+    <message name="msgUpdateActivityStatusRequest">
+        <part element="uas:updateActivityStatus" name="parameters"/>
+    </message>
+    <message name="msgScheduleActivityRequest">
+        <part element="sa:scheduleActivity" name="parameters"/>
+    </message>
+    <message name="msgScheduleActivityResponse">
+        <part element="sa:scheduleActivityResponse" name="parameters"/>
+    </message>
+    <message name="ScheduleActivityValidationException">
+        <part element="fault:validationFault" name="fault"/>
+    </message>
+    <message name="msgUpdateActivityForecastStatusRequest">
+        <part element="uas:updateActivityForecastStatus" name="parameters"/>
+    </message>
+    <message name="msgCreatePlanRequest">
+        <part element="cp:createPlan" name="parameters"/>
+    </message>
+    <message name="msgCreatePlanResponse">
+        <part element="cp:createPlanResponse" name="parameters"/>
+    </message>
+    <message name="CreatePlanValidationException">
+        <part element="fault:validationFault" name="fault"/>
+    </message>
+    <message name="msgCreateSubPlanRequest">
+        <part element="csp:createSubPlan" name="parameters"/>
+    </message>
+    <message name="msgCreateSubPlanResponse">
+        <part element="csp:createSubPlanResponse" name="parameters"/>
+    </message>
+    <message name="CreateSubPlanValidationException">
+        <part element="fault:validationFault" name="fault"/>
+    </message>
+    <message name="msgGetExecutionPlanViewRequest">
+        <part element="env:getExecutionPlanView" name="parameters"/>
+    </message>
+    <message name="msgGetExecutionPlanViewResponse">
+        <part element="env:executionPlanResponse" name="parameters"/>
+    </message>
+    <message name="GetExecutionPlanViewValidationException">
+        <part element="fault:validationFault" name="fault"/>
+    </message>
+    <message name="msgGetExecutionPlanViewByPlanIDRequest">
+        <part element="env:getExecutionPlanViewByPlanID" name="parameters"/>
+    </message>
+    <message name="msgGetMilestoneRequest">
+        <part element="env:getMilestoneRequest" name="parameters"/>
+    </message>
+    <message name="msgGetMilestoneResponse">
+        <part element="env:getMilestoneResponse" name="parameters"/>
+    </message>
+    <message name="GetMilestoneException">
+        <part element="fault:exception" name="fault"/>
+    </message>
+    <message name="msgGetActivityRequest">
+        <part element="env:getActivityRequest" name="parameters"/>
+    </message>
+    <message name="msgGetActivityResponse">
+        <part element="env:getActivityResponse" name="parameters"/>
+    </message>
+    <message name="GetActivityException">
+        <part element="fault:exception" name="fault"/>
+    </message>
+    <message name="msgReportErrorRequest">
+        <part element="err:reportError" name="parameters"/>
+    </message>
+    <message name="msgReportErrorResponse">
+        <part element="err:reportErrorResponse" name="parameters"/>
+    </message>
+    <message name="ReportErrorValidationException">
+        <part element="fault:validationFault" name="fault"/>
+    </message>
+    <message name="msgErrorResolvedRequest">
+        <part element="err:errorResolved" name="parameters"/>
+    </message>
+    <message name="msgExecutePlanRequest">
+        <part element="ep:executePlan" name="parameters"/>
+    </message>
+    <message name="msgExecutePlanResponse">
+        <part element="ep:executePlanResponse" name="parameters"/>
+    </message>
+    <message name="msgUpdateMilestoneStatusRequest">
+        <part element="ums:updateMilestoneStatusRequest" name="parameters"/>
+    </message>
+    <message name="msgCancelPlanRequest">
+        <part element="cnp:cancelPlanRequest" name="parameters"/>
+    </message>
+    <message name="msgCancelPlanResponse">
+        <part element="cnp:cancelPlanResponse" name="parameters"/>
+    </message>
+    <message name="msgLinkPlanRequest">
+        <part element="lp:linkPlan" name="parameters"/>
+    </message>
+    <message name="msgUnlinkPlanRequest">
+        <part element="ulp:unlinkPlan" name="parameters"/>
+    </message>
+    <portType name="DynamicProcessManager">
+        <operation name="updateActivityStatus">
+            <input message="tns:msgUpdateActivityStatusRequest"/>
+        </operation>
+        <operation name="scheduleActivity">
+            <input message="tns:msgScheduleActivityRequest"/>
+            <output message="tns:msgScheduleActivityResponse"/>
+            <fault message="tns:ScheduleActivityValidationException" name="ScheduleActivityValidationException"/>
+        </operation>
+        <operation name="updateActivityForecastStatus">
+            <input message="tns:msgUpdateActivityForecastStatusRequest"/>
+        </operation>
+        <operation name="createPlan">
+            <input message="tns:msgCreatePlanRequest"/>
+            <output message="tns:msgCreatePlanResponse"/>
+            <fault message="tns:CreatePlanValidationException" name="CreatePlanValidationException"/>
+        </operation>
+        <operation name="createSubPlan">
+            <input message="tns:msgCreateSubPlanRequest"/>
+            <output message="tns:msgCreateSubPlanResponse"/>
+            <fault message="tns:CreateSubPlanValidationException" name="CreateSubPlanValidationException"/>
+        </operation>
+        <operation name="getExecutionPlanView">
+            <input message="tns:msgGetExecutionPlanViewRequest"/>
+            <output message="tns:msgGetExecutionPlanViewResponse"/>
+            <fault message="tns:GetExecutionPlanViewValidationException" name="GetExecutionPlanViewValidationException"/>
+        </operation>
+        <operation name="getExecutionPlanViewByPlanID">
+            <input message="tns:msgGetExecutionPlanViewByPlanIDRequest"/>
+            <output message="tns:msgGetExecutionPlanViewResponse"/>
+            <fault message="tns:GetExecutionPlanViewValidationException" name="GetExecutionPlanViewValidationException"/>
+        </operation>
+        <operation name="getMilestone">
+            <input message="tns:msgGetMilestoneRequest"/>
+            <output message="tns:msgGetMilestoneResponse"/>
+            <fault message="tns:GetMilestoneException" name="GetMilestoneException"/>
+        </operation>
+        <operation name="getActivity">
+            <input message="tns:msgGetActivityRequest"/>
+            <output message="tns:msgGetActivityResponse"/>
+            <fault message="tns:GetActivityException" name="GetActivityException"/>
+        </operation>
+        <operation name="reportError">
+            <input message="tns:msgReportErrorRequest"/>
+            <output message="tns:msgReportErrorResponse"/>
+            <fault message="tns:ReportErrorValidationException" name="ReportErrorValidationException"/>
+        </operation>
+        <operation name="errorResolved">
+            <input message="tns:msgErrorResolvedRequest"/>
+        </operation>
+        <operation name="executePlan">
+            <input message="tns:msgExecutePlanRequest"/>
+            <output message="tns:msgExecutePlanResponse"/>
+        </operation>
+        <operation name="updateMilestoneStatus">
+            <input message="tns:msgUpdateMilestoneStatusRequest"/>
+        </operation>
+        <operation name="cancelPlan">
+            <input message="tns:msgCancelPlanRequest"/>
+            <output message="tns:msgCancelPlanResponse"/>
+        </operation>
+        <operation name="linkPlan">
+            <input message="tns:msgLinkPlanRequest"/>
+        </operation>
+        <operation name="unlinkPlan">
+            <input message="tns:msgUnlinkPlanRequest"/>
+        </operation>
+    </portType>
+    <binding name="DynamicProcessManagerBinding" type="tns:DynamicProcessManager">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="updateActivityStatus">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+        <operation name="updateActivityForecastStatus">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+        <operation name="scheduleActivity">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="ScheduleActivityValidationException">
+                <soap:fault name="ScheduleActivityValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="createPlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="CreatePlanValidationException">
+                <soap:fault name="CreatePlanValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="createSubPlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="CreateSubPlanValidationException">
+                <soap:fault name="CreateSubPlanValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="reportError">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="ReportErrorValidationException">
+                <soap:fault name="ReportErrorValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="errorResolved">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+        <operation name="executePlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getExecutionPlanView">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="GetExecutionPlanViewValidationException">
+                <soap:fault name="GetExecutionPlanViewValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getExecutionPlanViewByPlanID">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="GetExecutionPlanViewValidationException">
+                <soap:fault name="GetExecutionPlanViewValidationException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getMilestone">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="GetMilestoneException">
+                <soap:fault name="GetMilestoneException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getActivity">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="GetActivityException">
+                <soap:fault name="GetActivityException" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="updateMilestoneStatus">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+        <operation name="cancelPlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="linkPlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+        <operation name="unlinkPlan">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+    </binding>
+    <service name="DynamicProcessManagerSvc">
+        <port binding="tns:DynamicProcessManagerBinding" name="DynamicProcessManagerPort">
+            <soap:address location="http://incoment01.corp.amdocs.com:22700/aff/DynamicProcessManagerSvc"/>
+        </port>
+    </service>
+</definitions>

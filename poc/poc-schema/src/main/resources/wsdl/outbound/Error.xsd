@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://amdocs.com/oss/aff/schema/error" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/error">
+    
+    <xs:element name="errorRequest" type="ErrorRequest"/>
+    
+    <xs:complexType name="ErrorRequest">
+        <xs:sequence>
+            <xs:element name="planID" type="xs:string"/>
+            <xs:element name="activityID" type="xs:string"/>
+            <xs:element name="errorInfo" type="ErrorInfo"/>
+            <xs:element maxOccurs="1" minOccurs="0" name="runtimeContext" type="RuntimeContext"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ErrorInfo">
+        <xs:sequence>
+            <xs:element name="reason" type="xs:string"/>
+            <xs:element name="details" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ErrorResolvedRequest">
+        <xs:sequence>
+            <xs:element name="planID" type="xs:string"/>
+            <xs:element name="activityID" type="xs:string"/>
+            <xs:element name="errorID" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RuntimeContext">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="nodes" type="Node"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Node">
+        <xs:sequence>
+            <xs:element name="ID" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+        <xs:anyAttribute processContents="lax"/>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ep="http://amdocs.com/oss/aff/schema/executionPlan" xmlns="http://amdocs.com/oss/aff/schema/createSubPlan" elementFormDefault="qualified" targetNamespace="http://amdocs.com/oss/aff/schema/createSubPlan">
+
+    <xs:import namespace="http://amdocs.com/oss/aff/schema/executionPlan" schemaLocation="ExecutionPlan.xsd"/>
+
+    <xs:element name="createSubPlanRequest" type="CreateSubPlanRequest"/>
+
+    <xs:complexType name="CreateSubPlanRequest">
+        <xs:sequence>
+            <xs:element name="planId" type="xs:string"/>
+            <xs:element name="parentPlanId" type="xs:string"/>
+            <xs:element name="parentActivityId" type="xs:string"/>
+            <xs:element name="executionPlans" type="ep:ExecutionPlans"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="createSubPlanResponse" type="CreatePlanResponse"/>
+
+    <xs:complexType name="CreatePlanResponse">
+        <xs:sequence>
+            <xs:element name="planID" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
