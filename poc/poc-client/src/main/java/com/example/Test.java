@@ -3,16 +3,6 @@ package com.example;
 import com.mkyong.ws.ServerInfo;
 import com.mkyong.ws.ServerInfoService;
 
-//import java.net.MalformedURLException;
-//import java.net.URL;
-//
-//import javax.xml.namespace.QName;
-//
-//import arminterfaceservice.webservices.comcast.amdocs.com.ARMService;
-//import arminterfaceservice.webservices.comcast.amdocs.com.ARMServicePortType;
-//
-//import com.amdocs.comcast.webservices.locatesite.LocateSiteRequestType;
-
 public class Test {
 
 	
@@ -29,7 +19,7 @@ public class Test {
 //	public static void main(String[] args) {
 //		
 //		try {
-//			ARMService arm=new ARMService(new URL("http://10.19.9.92:7001/poc-war/comcastService?wsdl"), new QName("http://com.amdocs.comcast.webservices.arminterfaceservice/", "ARMService"));
+//			ARMService arm=new ARMService(new URL("http://host:7001/poc-war/cstService?wsdl"), new QName("http://com.dc.ccas.webservices.arminterfaceservice/", "ARMService"));
 //			ARMServicePortType service = arm.getARMServiceSoapHTTPPort();
 //			LocateSiteRequestType locateSiteRequest = new LocateSiteRequestType();
 //			locateSiteRequest.setSiteId("asfd");
@@ -42,7 +32,7 @@ public class Test {
 //		
 //		
 //		try {
-//			ARMService arm=new ARMService(new URL("http://10.19.9.92:7001/poc-war/comcastService?wsdl"), new QName("http://com.amdocs.comcast.webservices.arminterfaceservice/", "ARMServiceSoapHTTPPort"));
+//			ARMService arm=new ARMService(new URL("http://host:7001/poc-war/cstService?wsdl"), new QName("http://com.cd.ca.webservices.arminterfaceservice/", "ARMServiceSoapHTTPPort"));
 //			ARMServicePortType service = arm.getARMServiceSoapHTTPPort();
 //			LocateSiteRequestType locateSiteRequest = new LocateSiteRequestType();
 //			locateSiteRequest.setSiteId("asfd");
