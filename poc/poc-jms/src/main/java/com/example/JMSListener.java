@@ -29,9 +29,9 @@ public class JMSListener implements SessionAwareMessageListener<Message> {
 	@Qualifier("oxmMessageConverter")
 	private MessageConverter msgConverter;
 
-	private static final String SOM_1_URL = "http://inoscmm078.corp.amdocs.com:27400/aff/DynamicProcessManagerSvc?wsdl";
-	private static final String SOM_2_URL = "http://inoscmm025.corp.amdocs.com:21100/aff/DynamicProcessManagerSvc?wsdl";
-	private static final String SOM_3_URL = "http://inoscmm054.corp.amdocs.com:26100/aff/DynamicProcessManagerSvc?wsdl";
+	private static final String SOM_1_URL = "http://server:27400/aff/DynamicProcessManagerSvc?wsdl";
+	private static final String SOM_2_URL = "http://server:21100/aff/DynamicProcessManagerSvc?wsdl";
+	private static final String SOM_3_URL = "http://server:26100/aff/DynamicProcessManagerSvc?wsdl";
 
 	@Override
 	public void onMessage(Message msg, Session session) throws JMSException {
