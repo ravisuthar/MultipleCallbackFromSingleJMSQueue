@@ -41,7 +41,7 @@
 		<!-- <InventoryObjectAPI.version>8.1.0-SNAPSHOT</InventoryObjectAPI.version> 
 			Module arm-comonality-api is InventoryObjectAPI project -->
 		<inventory.api.driver.version>9.0.0</inventory.api.driver.version>
-		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.collections.version>3.2.2</commons.collections.version>
 		<commons.logging.version>1.2</commons.logging.version>
 		<commons.beanutils.version>1.8.3</commons.beanutils.version>
 		<commons.collections4.version>4.0</commons.collections4.version>
