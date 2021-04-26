@@ -45,7 +45,7 @@
 		<commons.logging.version>1.2</commons.logging.version>
 		<commons.beanutils.version>1.8.3</commons.beanutils.version>
 		<commons.collections4.version>4.0</commons.collections4.version>
-		<commons.io.version>1.4</commons.io.version>
+		<commons.io.version>2.7</commons.io.version>
 		<commons.lang3.version>3.0</commons.lang3.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<xmlschema.core.version>2.0.1</xmlschema.core.version>
